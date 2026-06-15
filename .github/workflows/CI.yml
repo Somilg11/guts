@@ -22,7 +22,7 @@ jobs:
             target: x86_64-apple-darwin
             name: guts.darwin-x64.node
           - host: windows-latest
-            target: x86_64-pc-windows-msvc
+            target: x86_pc-windows-msvc
             name: guts.win32-x64-msvc.node
 
     runs-on: ${{ matrix.settings.host }}
@@ -76,11 +76,18 @@ jobs:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
 
-      # Downloads all matrix binaries directly into your root directory
+      # 1. Download all build matrix outputs into a staging directory
       - name: Download All Artifacts
         uses: actions/download-artifact@v4
         with:
-          merge-multiple: true
+          path: staging-binaries
+
+      # 2. Extract all binaries into the root and print visual verification logs
+      - name: Flatten & Log Native Binaries
+        run: |
+          find staging-binaries -name "*.node" -exec cp {} . \;
+          echo "📸 VERIFYING PACKAGED BINARIES IN ROOT:"
+          ls -la *.node
 
       - name: Sync Package Version with Git Tag
         run: |
