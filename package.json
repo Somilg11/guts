@@ -1,6 +1,6 @@
 {
   "name": "guts-validator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hyper-performance, memory-compiled structural schema validation library engineered in native Rust.",
   "main": "wrapper.js",
   "types": "index.d.ts",
