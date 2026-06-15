@@ -85,7 +85,7 @@ jobs:
       - name: Sync Package Version with Git Tag
         run: |
           TAG_VERSION=$(echo "${{ github.ref_name }}" | sed 's/^v//')
-          npm version $TAG_VERSION --no-git-tag-version
+          npm version $TAG_VERSION --no-git-tag-version --allow-same-version
 
       - name: Clean package configurations
         run: npm install --ignore-scripts
