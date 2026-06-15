@@ -48,13 +48,17 @@ jobs:
       - name: Build Native Binary
         run: npx napi build --release --target ${{ matrix.settings.target }}
 
+      # Automatically finds any compiled binary in the workspace and targets it
       - name: Rename Artifact
         shell: bash
         run: |
-          if [ -f "guts.node" ]; then
-            mv guts.node ${{ matrix.settings.name }}
-          elif [ -f "guts.${{ matrix.settings.target }}.node" ]; then
-            mv guts.${{ matrix.settings.target }}.node ${{ matrix.settings.name }}
+          FOUND_NODE=$(find . -maxdepth 2 -name "*.node" | head -n 1)
+          if [ -n "$FOUND_NODE" ]; then
+            mv "$FOUND_NODE" "./${{ matrix.settings.name }}"
+            echo "✅ Successfully mapped $FOUND_NODE to ./${{ matrix.settings.name }}"
+          else
+            echo "❌ ERROR: Compiled .node binary was not generated in root workspace!"
+            exit 1
           fi
 
       - name: Upload Artifact
@@ -76,13 +80,12 @@ jobs:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
 
-      # 1. Download all build matrix outputs into a staging directory
       - name: Download All Artifacts
         uses: actions/download-artifact@v4
         with:
           path: staging-binaries
 
-      # 2. Extract all binaries into the root and print visual verification logs
+      # Extracts the cross-platform targets into the root packaging workspace
       - name: Flatten & Log Native Binaries
         run: |
           find staging-binaries -name "*.node" -exec cp {} . \;
