@@ -1,0 +1,27 @@
+{
+  "name": "guts",
+  "version": "1.0.0",
+  "description": "Hyper-performance, memory-compiled structural schema validation library engineered in native Rust.",
+  "main": "wrapper.js",
+  "types": "index.d.ts",
+  "napi": {
+    "binaryName": "guts"
+  },
+  "files": [
+    "wrapper.js",
+    "index.d.ts",
+    "guts.node",
+    "guts.darwin-arm64.node",
+    "guts.darwin-x64.node",
+    "guts.linux-x64-gnu.node",
+    "guts.win32-x64-msvc.node"
+  ],
+  "scripts": {
+    "build": "napi build --platform --release",
+    "build:debug": "napi build",
+    "test": "node test.js"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^2.18.4"
+  }
+}

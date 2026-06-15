@@ -1,0 +1,10 @@
+src/
+target/
+.cargo/
+Cargo.lock
+Cargo.toml
+test.js
+.vscode/
+package-lock.json
+node_modules/
+docs/
