@@ -76,15 +76,11 @@ jobs:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
 
+      # Downloads all matrix files directly into your workspace root
       - name: Download All Artifacts
         uses: actions/download-artifact@v4
         with:
-          path: artifacts-temp
-
-      - name: Consolidate Binaries
-        run: |
-          find artifacts-temp -type f -name "*.node" -exec cp {} . \;
-          rm -rf artifacts-temp
+          merge-multiple: true
 
       - name: Sync Package Version with Git Tag
         run: |
