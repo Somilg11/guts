@@ -8,11 +8,11 @@ export default function LandingPage() {
   const [copied, setCopied] = useState(false);
 
   const installCommands: Record<string, string> = {
-    npm: 'npm i guts',
-    pnpm: 'pnpm add guts',
-    yarn: 'yarn add guts',
-    bun: 'bun add guts',
-    cargo: 'cargo add guts',
+    npm: 'npm i guts-validator',
+    pnpm: 'pnpm add guts-validator',
+    yarn: 'yarn add guts-validator',
+    bun: 'bun add guts-validator',
+    cargo: 'cargo add guts-validator',
   };
 
   const copyToClipboard = () => {

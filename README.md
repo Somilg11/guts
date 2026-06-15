@@ -1,4 +1,4 @@
-# ⚡ guts
+# guts
 
 `guts` is a hyper-performance, memory-compiled structural schema validation library for Node.js, engineered entirely in native Rust.
 
@@ -6,7 +6,7 @@ By bypassing traditional runtime parsing loops and utilizing a single-compilatio
 
 ---
 
-## 🚀 The Core Philosophy
+## The Core Philosophy
 
 Most JavaScript validation libraries force you to make a choice:
 
@@ -110,7 +110,7 @@ npm test
 
 ---
 
-## 🛡️ Compile-Time Static Type Safety
+## Compile-Time Static Type Safety
 
 `guts` ships with a highly advanced type extraction engine matching Zod's compiler profile perfectly.
 
@@ -142,7 +142,7 @@ type SignupRequest = Infer<typeof signupSchema>;
 
 ---
 
-## 💡 Usage Guide & API Reference
+## Usage Guide & API Reference
 
 ### Import the Schema Builder
 
@@ -235,7 +235,7 @@ const tokenSchema = g.string().min(
 
 ---
 
-## 🤖 Real-Time Token Stream Validation (AI Engine)
+## Real-Time Token Stream Validation (AI Engine)
 
 When building AI agents or processing structured LLM generation loops, waiting for the full response to finish before running validation wastes time and compromises safety.
 
@@ -266,7 +266,7 @@ try {
 
 ---
 
-## 🛑 Interpreting Trace Error Responses
+## Interpreting Trace Error Responses
 
 ### Missing Key Faults
 
@@ -304,7 +304,7 @@ try {
 
 ---
 
-## 🚢 Production Deployment
+## Production Deployment
 
 To package and bundle `guts` for production multi-platform architectures, switch from your local debug engine configurations to optimized release bundles:
 
@@ -316,7 +316,7 @@ This production build script utilizes the `@napi-rs/cli` to trigger compiler tar
 
 ---
 
-## 🎯 Feature Comparison Matrix
+## Feature Comparison Matrix
 
 | Feature | guts | Zod | Ajv |
 |----------|------|------|------|
@@ -331,6 +331,6 @@ This production build script utilizes the `@napi-rs/cli` to trigger compiler tar
 
 ---
 
-## ⚡ Closing Statement
+## Closing Statement
 
 > **guts — Ergonomics of Zod. Performance of Systems Programming.**
