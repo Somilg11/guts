@@ -1,6 +1,6 @@
 {
   "name": "guts-validator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Hyper-performance, memory-compiled structural schema validation library engineered in native Rust.",
   "main": "wrapper.js",
   "types": "index.d.ts",
@@ -17,8 +17,8 @@
     "guts.win32-x64-msvc.node"
   ],
   "scripts": {
-    "build": "napi build --platform --release",
-    "build:debug": "napi build",
+    "build": "napi build --platform --release --dts binding.d.ts",
+    "build:debug": "napi build --dts binding.d.ts",
     "test": "node test.js"
   },
   "devDependencies": {
