@@ -76,17 +76,11 @@ jobs:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
 
-      # 1. Download all artifacts into an explicit isolated folder
+      # Downloads all matrix binaries directly into your root directory
       - name: Download All Artifacts
         uses: actions/download-artifact@v4
         with:
-          path: fetched-binaries
-
-      # 2. Extract and flatten all .node files directly into the root workspace
-      - name: Flatten and Consolidate Binaries
-        run: |
-          find fetched-binaries -type f -name "*.node" -exec cp {} . \;
-          rm -rf fetched-binaries
+          merge-multiple: true
 
       - name: Sync Package Version with Git Tag
         run: |
